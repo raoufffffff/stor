@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
    <header
-   className='flex px-5 py-1.5 lg:py-3 shadow-2xl flex-col items-center lg:flex-row bg-[#a600FFaa] '
+   className='flex px-5 py-1.5 lg:py-3  flex-col items-center lg:flex-row bg-[#a600FFaa] '
    >
     <Link
     to={'/'}

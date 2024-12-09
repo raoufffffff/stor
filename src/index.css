@@ -3,11 +3,18 @@
 @tailwind utilities;
 
 body{
-    background-image: linear-gradient(to bottom, #ffffff, #f8f7fa, #f1eff5, #ebe7ef, #e6dfe9);
-    background-repeat: no-repeat;
+   background-color: #efefef;
     min-height: 100vh;
 }
 
 .a::-webkit-scrollbar {
     width: 0px;
+  }
+
+  .one-line {
+    display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Optional: adds "..." for overflow */
   }

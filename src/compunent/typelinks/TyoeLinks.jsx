@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import types from '../../constanst/types'
 import { NavLink } from 'react-router-dom'
 const TyoeLinks = ({id}) => {
+  
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
     const ourTypes = types.map(e=> (
         <NavLink 
         to={`/type/${e.name}`}
@@ -18,7 +33,7 @@ const TyoeLinks = ({id}) => {
     ))
   return (
     <ul
-    className='w-full md:w-3/12 a pb-3 flex md:flex-col overflow-x-scroll md:overflow-hidden'
+    className={`w-full md:w-3/12 a pb-3 flex md:flex-col md:fixed md:h-5/6 md:left-0 ${scrollY > 70 ? "md:top-[0]" : "md:top-[94px]"}  overflow-x-scroll md:overflow-hidden`}
     >
 {ourTypes}
     </ul>
