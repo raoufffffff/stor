@@ -8,6 +8,7 @@ const TyoeLinks = ({id}) => {
     const ourTypes = types.map(e=> (
         <NavLink 
         to={`/type/${e.name}`}
+        key={e.name}
         className={`${id === e.name && "font-bold text-purple-600  underline border-b-purple-600 border-purple-400 md:text-black"}  flex items-center px-5 py-2   flex-1 mx-1 min-w-fit md:border-none`}
         >
             <div
