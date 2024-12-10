@@ -6,7 +6,7 @@ const Items = ({id}) => {
   
   return (
     <div
-    className=' w-full pb-5 md:w-9/12 ml-auto flex justify-center flex-wrap gap-3'
+    className=' w-full pb-5 md:w-10/12 ml-auto flex justify-around items-center flex-wrap '
     >
         {id === "offer"
          ? 

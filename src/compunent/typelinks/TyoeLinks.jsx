@@ -33,7 +33,7 @@ const TyoeLinks = ({id}) => {
     ))
   return (
     <ul
-    className={`w-full md:w-3/12 a pb-3 flex md:flex-col md:fixed md:h-5/6 md:left-0 ${scrollY > 70 ? "md:top-[0]" : "md:top-[94px]"}  overflow-x-scroll md:overflow-hidden`}
+    className={`w-full md:w-2/12 a pb-3 flex md:flex-col md:fixed md:h-5/6 md:left-0 ${scrollY > 70 ? "md:top-[0]" : "md:top-[94px]"}  overflow-x-scroll md:overflow-hidden`}
     >
 {ourTypes}
     </ul>

@@ -8,11 +8,8 @@ function App() {
   className="w-full"
   >
     <Header />
-    <div
-    className="px-5"
-    >
+    
     <Outlet />
-    </div>
   </div>
   )
 }
