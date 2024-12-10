@@ -49,14 +49,6 @@ export default [
         offer: false,
         type: " Dairy & Eggs "
     },
-    {
-        name: "œuf 30",
-        img: "https://www.quitoque.fr/media/cache/blog/blog/2018/01/comment-savoir-si-un-oeuf-est-perime.jpg",
-        price: 600,
-        newprice: 60,
-        offer: false,
-        type: " Dairy & Eggs "
-    },
     // 
     {
         name: "Cevital Léguste Haricots Blancs 1kg",

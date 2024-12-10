@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 const ItemCard = ({item}) => {
   return (
     <Link 
-    to={`/`}
-    className='w-[46%] my-2 flex flex-col md:w-4/12 lg:w-[20%] border bg-white border-gray-300 rounded-xl overflow-hidden max-h-[300px] min-h-[300px] hover:shadow-xl hover:scale-105'
+    to={`/type/${item.type}/?item=${item.name}`}
+    className='w-[47%] my-2 flex flex-col md:w-4/12 lg:w-[23%] md:mx-2 border bg-white border-gray-300 rounded-xl overflow-hidden max-h-[300px] min-h-[300px] hover:shadow-xl hover:scale-105'
     >
       <img 
       src={item.img}
       alt={item.name}
-      className='h-4/6 w-full'
+      className='h-4/6 min-h-[66.666667%] w-full'
       />
       <p
       className='one-line text-center font-medium'

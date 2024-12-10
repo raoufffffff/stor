@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { HiShoppingCart } from 'react-icons/hi'
 import { MdOutlineSearch } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
    <header
-   className='flex px-5 py-1.5 lg:py-3  flex-col items-center lg:flex-row bg-[#a600FFaa] '
+   className={`flex px-5 py-1.5 lg:py-3  flex-col items-center lg:flex-row bg-[#a600FF] ${scrollY > 90 && "fixed top-0 left-0 z-50"} w-full`}
    >
     <Link
     to={'/'}
