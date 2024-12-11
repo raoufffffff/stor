@@ -19,7 +19,7 @@ const Header = () => {
   }, []);
   return (
    <header
-   className={`flex px-5 py-1.5 lg:py-3  flex-col items-center lg:flex-row bg-[#a600FF] ${scrollY > 90 && "fixed top-0 left-0 z-50"} w-full`}
+   className={`flex px-5 py-1.5 lg:py-3  flex-col items-center lg:flex-row bg-[#dd2a5b] ${scrollY > 90 && "fixed top-0 left-0 z-50"} w-full`}
    >
     <Link
     to={'/'}
@@ -27,7 +27,7 @@ const Header = () => {
     >
     <HiShoppingCart color='#fff' className='mr-1' size={30}/>
     
-    InstaSphope
+    DailySphope
     </Link>
     <label
     htmlFor='shearch'

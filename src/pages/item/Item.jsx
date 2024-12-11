@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import items from '../../constanst/items'
-import { FaCircleMinus, FaCirclePlus } from 'react-icons/fa6'
 import { IoCloseSharp } from 'react-icons/io5'
-import SadeItems from '../../compunent/SadeItems/SadeItems'
 const Item = () => {
     
    const [searchParams, setSearchParams] = useSearchParams()

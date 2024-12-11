@@ -9,7 +9,7 @@ const TyoeLinks = ({id}) => {
         <NavLink 
         to={`/type/${e.name}`}
         key={e.name}
-        className={`${id === e.name && "font-bold text-purple-600  underline border-b-purple-600 border-purple-400 md:text-black"}  flex items-center px-5 py-2   flex-1 mx-1 min-w-fit md:border-none`}
+        className={`${id === e.name && "font-bold text-[#dd2a5b]  underline border-b-[#dd2a5b] border-[#dd2a5b] md:text-black"}  flex items-center px-5 py-2   flex-1 mx-1 min-w-fit md:border-none`}
         >
             <div
             className={`hidden mr-2 md:flex w-5 h-5  justify-center items-center p-1 border ${id === e.name ? "border-2 border-purple-300" :"border-[#7777]"} rounded-full`}
