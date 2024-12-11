@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Categories = () => {
     const ourTypes = types.map(e => (
         <Link to={`type/${e.name}`} key={e.name}
-        className='w-[30%] lg:w-[19%]  flex flex-col items-center'
+        className='w-[20%] lg:w-[15%]  flex flex-col items-center'
         >
             <img 
             className='rounded-xl'

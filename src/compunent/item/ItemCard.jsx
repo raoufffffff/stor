@@ -56,7 +56,6 @@ const ItemCard = ({ item }) => {
       onClick={handleAddItem}
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
-      exit={{ x: 1000 }}
       transition={{ duration: 1, type: "spring" }}
       className="w-[45%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:w-3/12 lg:w-[21%] md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[280px] min-h-[280px] hover:shadow-xl hover:scale-105"
     >

@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom"
 import Header from "./compunent/header/Header"
 
-function App() {
 
+function App() {
   return (
   <div
   className="w-full"
   >
     <Header />
-    
+   
     <Outlet />
   </div>
   )
