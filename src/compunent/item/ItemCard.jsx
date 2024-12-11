@@ -21,42 +21,43 @@ const ItemCard = ({ item }) => {
 
     if (existingItem) {
       // Update the quantity for an existing item
-      state.items = snap.items.map((e) =>
+      state.items = state.items.map((e) =>
         e.name === item.name ? {...e, q: e.q + 1 } : e
       );
     } else {
       // Add the new item with quantity 1
-      state.items = [...snap.items, { ...item, q: 1 }];
+      let n = {...item, q: 1}
+      state.items = [...state.items, n];
     }
   };
 
   const handleRemoveItem = (event) => {
     event.stopPropagation();
 
-    const existingItem = snap.items.find((e) => e.name === item.name);
+    const existingItem = state.items.find((e) => e.name === item.name);
 
     if (existingItem) {
       if (existingItem.q > 1) {
-        state.items = snap.items.map((e) =>
+        state.items = state.items.map((e) =>
           e.name === item.name ? { ...e, q: e.q - 1 } : e
         );
       } else {
         // Remove the item entirely if quantity reaches 0
-        state.items = snap.items.filter((e) => e.name !== item.name);
+        state.items = state.items.filter((e) => e.name !== item.name);
       }
       handleAnimation();
     }
   };
 
-  const existingItem = snap.items.find((e) => e.name === item.name);
+  const existingItem = state.items.find((e) => e.name === item.name);
 
   return (
     <motion.div
       onClick={handleAddItem}
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
-      transition={{ duration: 0.3, type: "spring" }}
       exit={{ x: 1000 }}
+      transition={{ duration: 1, type: "spring" }}
       className="w-[45%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:w-3/12 lg:w-[21%] md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[280px] min-h-[280px] hover:shadow-xl hover:scale-105"
     >
       {existingItem?.q > 0 && (

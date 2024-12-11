@@ -20,7 +20,7 @@ const VieCard = () => {
     }
   return (
     <div
-    className='fixed z-[1000] py-1.5 px-2.5 flex items-center justify-between bg-[#43ae3e] text-white rounded-3xl w-9/12  bottom-5 left-[50%] translate-x-[-50%]'
+    className='fixed z-[1000] py-2 px-2.5 flex items-center justify-between bg-[#43ae3e] text-white rounded-3xl w-10/12  bottom-5 left-[50%] translate-x-[-50%]'
     >
         <span
         className='bg-[#0d0d0d40] px-3 py-1 rounded-full'

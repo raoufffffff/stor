@@ -14,7 +14,7 @@ const myitem = items.find(e => e.name === searchParams.get("item"))
     >
        
         <div
-        className='bg-white relative flex flex-col w-10/12 h-4/6 overflow-y-scroll a rounded-xl'
+        className='bg-white relative flex flex-col w-10/12 md:w-6/12 h-4/6 overflow-y-scroll a rounded-xl'
         >
              <IoCloseSharp
 onClick={()=>   setSearchParams(e => e.set('item', null))
