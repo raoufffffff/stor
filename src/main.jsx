@@ -6,13 +6,15 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Home from './pages/home/Home.jsx';
 import Type from './pages/type/Type.jsx';
 import Card from './pages/Card/Card.jsx';
+import Checkout from './pages/checkout/Checkout.jsx';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>
     <Route index element={<Home />} />
     <Route path='type/:id' element={<Type />} />
     <Route path='card' element={<Card />} />
-   
+    <Route path='checkout' element={<Checkout />} />
+    
   </Route>
 ));
 

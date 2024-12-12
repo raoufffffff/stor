@@ -31,13 +31,13 @@ const Header = () => {
     </Link>
     <label
     htmlFor='shearch'
-    className='rounded-xl bg-white h-10 w-8/12 lg:w-6/12  mt-1.5 mx-auto flex items-center px-2'
+    className='rounded-xl shadow-xl bg-white h-10 w-8/12 lg:w-6/12  mt-1.5 mx-auto flex items-center px-2'
     >
 <MdOutlineSearch color='#000' size={25} />
 <input 
 name='shearch'
 id='shearch'
-className='w-10/12 focus:outline-none ml-2'
+className='w-10/12 focus:outline-none ml-2 '
 placeholder='shearch for products'
 />
     </label>
