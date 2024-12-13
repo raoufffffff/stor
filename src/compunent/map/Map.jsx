@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { MapContainer, Marker, TileLayer, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { FaLocationArrow } from 'react-icons/fa';
 import { IoCloseSharp } from 'react-icons/io5';
+import L from 'leaflet'; // Import Leaflet for custom icon
 
 const DraggableMarkerMap = ({getpotion, hide}) => {
   const initialPosition = [36.752887, 3.042048]; // Coordinates for Algiers
   const [markerPosition, setMarkerPosition] = useState(initialPosition);
 console.log(markerPosition);
-
+const customIcon = new L.icon({
+    iconUrl: "https://e7.pngegg.com/pngimages/734/288/png-clipart-johnston-red-ginger-location-port-of-south-louisiana-computer-icons-location-people-heart-thumbnail.png",
+    iconSize: 30
+})
   // Custom component to track map events
   const MapEventHandler = () => {
     useMapEvents({
@@ -54,7 +57,9 @@ console.log(markerPosition);
             {/* Event Handler */}
             <MapEventHandler />
             {/* Hidden Marker for Position */}
-            <Marker position={markerPosition} />
+            <Marker
+            icon={customIcon}
+            position={markerPosition} />
           </MapContainer>
         </div>
         {/* Footer Section */}
