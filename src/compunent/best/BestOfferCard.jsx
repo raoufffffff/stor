@@ -59,7 +59,7 @@ const BestOfferCard = ({item}) => {
     initial={{ scale: 0 }}
     animate={{ scale: 1 }}
     transition={{ duration: 1, type: "spring" }}
-    className="min-w-[38%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:min-w-[15%]  md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[200px] min-h-[200px] hover:shadow-xl hover:scale-105"
+    className="min-w-[38%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:min-w-[15%]  md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[210px] min-h-[210px] hover:shadow-xl hover:scale-105"
   >
     {existingItem?.q > 0 && (
       <div className="absolute top-2 left-0 w-full flex justify-between px-1">
