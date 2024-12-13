@@ -78,7 +78,7 @@ const BestOfferCard = ({item}) => {
     <img
       src={item.img}
       alt={item.name}
-      className="min-h-[80px] max-h-[80px] w-full"
+      className="min-h-[80px] max-h-[100px] w-full"
     />
     <p className="one-line mt-3 text-center font-medium px-5">{item.name}</p>
     <div className="flex mt-auto flex-col">
