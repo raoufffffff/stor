@@ -7,6 +7,7 @@ import Home from './pages/home/Home.jsx';
 import Type from './pages/type/Type.jsx';
 import Card from './pages/Card/Card.jsx';
 import Checkout from './pages/checkout/Checkout.jsx';
+import Thanks from './pages/thanks/Thanks.jsx';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -14,6 +15,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='type/:id' element={<Type />} />
     <Route path='card' element={<Card />} />
     <Route path='checkout' element={<Checkout />} />
+    <Route path='thanks' element={<Thanks />} />
     
   </Route>
 ));
