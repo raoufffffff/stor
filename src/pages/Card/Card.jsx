@@ -37,7 +37,7 @@ className='flex flex-col mt-4 px-3 md:flex-row md:flex-wrap md:justify-center'
 className={`w-full border-t   border-t-gray-500 ${snap.items.length === 1 ? "mt-48" : snap.items.length === 2 ? "mt-28" : "mt-10"  } relative`}
 >
     <div
-    className='px-4 w-fit absolute -top-[15%] md:-top-[10%] z-50  rounded-lg bg-[#dd2a5b] text-white text-center left-[50%] translate-x-[-50%] border border-gray-500'
+    className='px-4 w-fit absolute -top-[15%] md:-top-[10%] z-40  rounded-lg bg-[#dd2a5b] text-white text-center left-[50%] translate-x-[-50%] border border-gray-500'
     >
         time of delevry {time > 17 ? "tomorrow evning" : "today evning"}
     </div>
