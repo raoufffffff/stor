@@ -27,7 +27,7 @@ const Header = () => {
     >
     <HiShoppingCart color='#fff' className='mr-1' size={30}/>
     
-    DailySphope
+    YacineSphope
     </Link>
     <label
     htmlFor='shearch'
