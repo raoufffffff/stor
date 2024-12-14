@@ -82,7 +82,7 @@ className={`w-full border-t mt-10   border-t-gray-500  relative`}
     <div
     className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-10'
     >
-        total : <span
+        Total order : <span
         className='font-bold '
         >{price()} DA</span>
     </div>
