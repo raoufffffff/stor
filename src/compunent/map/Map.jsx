@@ -32,7 +32,7 @@ const DraggableMarkerMap = ({ getpotion, hide }) => {
   const [markerPosition, setMarkerPosition] = useState(initialPosition);
 
   const customIcon = new L.icon({
-    iconUrl: "https://e7.pngegg.com/pngimages/734/288/png-clipart-johnston-red-ginger-location-port-of-south-louisiana-computer-icons-location-people-heart-thumbnail.png", // Replace with a valid image URL
+    iconUrl: "https://i.ibb.co/vQ66KCL/png-clipart-johnston-red-ginger-location-port-of-south-louisiana-computer-icons-location-people-hear.png", // Replace with a valid image URL
     iconSize: [30, 30],
   });
 

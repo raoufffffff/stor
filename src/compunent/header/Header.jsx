@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { FaArrowLeft } from 'react-icons/fa'
 import { HiShoppingCart } from 'react-icons/hi'
 import { MdOutlineSearch } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const location = useLocation();
+console.log(location.pathname);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
    <header
    className={`flex px-5 py-1.5 lg:py-3  flex-col items-center lg:flex-row bg-[#dd2a5b] transition-all  fixed jello-vertical top-0 left-0 z-50 w-full`}
@@ -41,6 +32,14 @@ className='w-10/12 focus:outline-none ml-2 '
 placeholder='shearch for products'
 />
     </label>
+   {location.pathname != '/' && <Link
+    to={`${location.pathname[1] === 't' ? "/" : "/type/offer"}`}
+    className='absolute left-5 bottom-4'
+    >
+    <FaArrowLeft 
+    size={22}
+    color='#fff' />
+    </Link>}
    </header>
   )
 }
