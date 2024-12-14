@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { motion } from "motion/react";
 import { FaCircleInfo, FaCircleMinus } from "react-icons/fa6";
-import { Link, useNavigate,   } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import state from "../../stor/stor";
 
 const BestOfferCard = ({item}) => {
     const snap = useSnapshot(state);
     const [animate, setAnimate] = useState(false);
-    let navigate = useNavigate();
 
     const handleAnimation = () => {
       setAnimate(true);
@@ -30,7 +29,6 @@ const BestOfferCard = ({item}) => {
         let n = {...item, q: 1}
         state.items = [...state.items, n];
       }
-      navigate(`/type/${item.type}`)
     };
   
     const handleRemoveItem = (event) => {
@@ -59,7 +57,7 @@ const BestOfferCard = ({item}) => {
     initial={{ scale: 0 }}
     animate={{ scale: 1 }}
     transition={{ duration: 1, type: "spring" }}
-    className="min-w-[38%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:min-w-[15%]  md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[210px] min-h-[210px] hover:shadow-xl hover:scale-105"
+    className="min-w-[40%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:min-w-[15%]  md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[200px] min-h-[200px] hover:shadow-xl hover:scale-105"
   >
     {existingItem?.q > 0 && (
       <div className="absolute top-2 left-0 w-full flex justify-between px-1">
@@ -78,7 +76,7 @@ const BestOfferCard = ({item}) => {
     <img
       src={item.img}
       alt={item.name}
-      className="min-h-[80px] max-h-[100px] w-full"
+      className="min-h-[80px] max-h-[80px] w-full"
     />
     <p className="one-line mt-3 text-center font-medium px-5">{item.name}</p>
     <div className="flex mt-auto flex-col">
@@ -91,7 +89,7 @@ const BestOfferCard = ({item}) => {
           {item.price} DA
         </span>
         {item.offer && (
-          <span className="ml-2 underline">{item.newprice} DA</span>
+          <span className="ml-1 underline">{item.newprice} DA</span>
         )}
       </div>
     </div>

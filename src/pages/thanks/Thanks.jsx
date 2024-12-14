@@ -7,7 +7,7 @@ const Thanks = () => {
     className='w-full '
     >
         <img 
-        className='w-5/12 mx-auto my-5'
+        className='w-2/12 mt-3 mx-auto '
         src={s}
         />
         <h1

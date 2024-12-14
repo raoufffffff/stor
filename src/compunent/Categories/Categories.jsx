@@ -11,7 +11,7 @@ const Categories = () => {
             src={e.img}
             />
             <span
-            className='mt-2 font-semibold text-center'
+            className='mt-2 text-xs font-semibold text-center'
             >{e.name}</span>
         </Link>
     ))

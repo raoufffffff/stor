@@ -9,7 +9,12 @@ function App() {
   className="w-full"
   >
     <Header />
+    <div
+    className="mt-[100px]"
+    >
+
     <Outlet />
+    </div>
     <Footer />
   </div>
   )
