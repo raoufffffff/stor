@@ -94,7 +94,7 @@ const BestOfferCard = ({item}) => {
       </div>
     </div>
     <Link
-      to={`/type/${item.type}/?item=${item.name}`}
+      to={`/?item=${item._id}`}
       className="absolute right-1 top-[55%]"
       onClick={(event) => event.stopPropagation()}
       aria-label="View Item Details"

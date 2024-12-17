@@ -1,4 +1,3 @@
-import { img } from "motion/react-client";
 
 export default [
     {

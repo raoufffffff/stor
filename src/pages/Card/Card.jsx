@@ -51,7 +51,7 @@ const Card = () => {
       try {
        await  axios.post('https://daily-api.onrender.com/order',
           {
-            name: state.user.name,
+            user: state.user.name,
             price: price(),
             ride: des(state.user.position),
             phone: state.user.phone,
