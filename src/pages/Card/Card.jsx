@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSnapshot } from 'valtio'
 import state from '../../stor/stor'
 import { motion } from 'motion/react'
@@ -8,6 +8,7 @@ import EmptyItems from '../../compunent/EmptyItems/EmptyItems'
 import Checkout from '../checkout/Checkout'
 import { getDistance } from 'geolib'
 import Thanks from '../thanks/Thanks'
+import axios from 'axios'
 const Card = () => {
   const [searchparams, setsearchparams] = useSearchParams()
     const time = new Date().getHours()
@@ -33,7 +34,6 @@ const Card = () => {
             setTimeout(() => setAnimate(false), 1000);
         }
       };
-      console.log(animate);
       
     const price = ()=>{
         let a = 0
@@ -46,12 +46,35 @@ const Card = () => {
     const ourCardItems = state.items.map((e, i)=>{
         return <CardaiatemCard e={e} key={i} i={i}/>
     })
-    const scroold = ()=>{
-      window.scrollTo({
-        behavior: "smooth",
-        top: 1000
-      })
+   
+    const sendOrder = async() => {
+      try {
+       await  axios.post('https://daily-api.onrender.com/order',
+          {
+            name: state.user.name,
+            price: price(),
+            ride: des(state.user.position),
+            phone: state.user.phone,
+            location: {location : state.user.position},
+            items: state.items
+          }
+        )
+        .then(() => {
+          state.items = []
+        })
+      } catch (error) {
+        console.log(error);
+      }
     }
+    useEffect(()=>{
+      const scroold = ()=>{
+        window.scrollTo({
+          behavior: "smooth",
+          top: 0
+        })
+      }
+      scroold()
+    },[])
   return (
     <motion.div
     initial={{scale: 0}}
@@ -82,7 +105,7 @@ className={`w-full border-t mt-10   border-t-gray-500  relative`}
     <div
     className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-10'
     >
-        Total order : <span
+        total : <span
         className='font-bold '
         >{price()} DA</span>
     </div>
@@ -142,7 +165,7 @@ className={`w-full border-t mt-10   border-t-gray-500  relative`}
   <Link
         to={'/card/?thanks=true'}
         onClick={()=>{
-          state.items = []
+sendOrder()
         }}
         className='w-9/12 bg-[#dd2a5b] mt-5 flex justify-center jello-horizontal rounded-2xl mx-auto text-center py-1  text-white'
         >Send the order</Link>
