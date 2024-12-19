@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import items from '../../constanst/items'
-import ItemCard from '../item/ItemCard'
 import { AnimatePresence } from 'motion/react'
 import PlaceholderList from '../Loading/BestPlaceHoleder'
+
 import axios from 'axios'
+import ItemCard from '../item/ItemCard'
 const Items = ({id}) => {
   const body = id == "offer" ? {offer: true} : {type: id}
   const [loading, setLoading] = useState(true)

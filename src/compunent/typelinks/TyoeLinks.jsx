@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import types from '../../constanst/types'
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 const TyoeLinks = ({id}) => {
-  
-  
-
+      const { t } = useTranslation(); 
     const ourTypes = types.map(e=> (
         <NavLink 
         to={`/type/${e.name}`}
@@ -18,7 +17,7 @@ const TyoeLinks = ({id}) => {
                 className='bg-purple-400 w-2 h-2 rounded-full'
                 ></div>}
             </div>
-            {e.name}</NavLink>
+            {t(e.key)}</NavLink>
     ))
   return (
     <ul

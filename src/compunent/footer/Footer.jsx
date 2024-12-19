@@ -1,8 +1,11 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { HiShoppingCart } from 'react-icons/hi'
 
 const Footer = () => {
+    const { t } = useTranslation(); // Get the translation function
+  
   return (
     <div
     className='bg-[#fefefe] border-t mt-10 border-t-slate-600 shadow-stone-500  py-3 flex flex-col'
@@ -20,7 +23,7 @@ const Footer = () => {
       </span>
       <p
       className='text-center'
-      >InstaShop offers you a hassle-free online shopping experience by bringing all your local supermarkets, pharmacies, restaurants, bakeries, butcheries, pet shops & more to your fingertips.</p>
+      >{t("footertext")}</p>
         </div>
         <div
         className='flex justify-center items-center mt-5'

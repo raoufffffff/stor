@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { IoCloseSharp } from 'react-icons/io5';
 import L from 'leaflet';
 import { FaLocationArrow } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 // Location Marker Component
 const LocationMarker = ({ triggerLocate }) => {
@@ -27,6 +28,7 @@ const LocationMarker = ({ triggerLocate }) => {
 
 // Draggable Map Component
 const DraggableMarkerMap = ({ getpotion, hide }) => {
+  const { t } = useTranslation();
   const [locate, setLocate] = useState(false);
   const initialPosition = [36.752887, 3.042048]; // Algiers coordinates
   const [markerPosition, setMarkerPosition] = useState(initialPosition);
@@ -63,9 +65,9 @@ const DraggableMarkerMap = ({ getpotion, hide }) => {
           <IoCloseSharp className="text-white" size={25} />
         </span>
         <div className="text-white flex flex-col items-center justify-center h-[15%] bg-[#dd2a5b] py-1.5">
-          <h3 className="text-center font-bold md:text-xl">Fine-tune your location</h3>
+          <h3 className="text-center font-bold md:text-xl">{t("find")}</h3>
           <p className="text-center px-5 text-xs md:text-lg my-1 font-[100]">
-            Please move the map to set the exact delivery location
+          {t("move")}
           </p>
         </div>
         {/* Map Section */}
@@ -92,7 +94,7 @@ getpotion(markerPosition);
             }}
             className="w-9/12 bg-[#dd2a5b] rounded-xl text-white text-lg font-semibold"
           >
-            Confirm pin location
+            {t("location")}
           </button>
           <button
             onClick={handleLocateClick}

@@ -8,6 +8,7 @@ import Type from './pages/type/Type.jsx';
 import Card from './pages/Card/Card.jsx';
 import Checkout from './pages/checkout/Checkout.jsx';
 import Thanks from './pages/thanks/Thanks.jsx';
+import "./i18n"; // Import the i18n configuration
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>

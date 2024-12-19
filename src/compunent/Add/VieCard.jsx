@@ -2,8 +2,11 @@ import React from 'react'
 import { useSnapshot } from 'valtio'
 import state from '../../stor/stor'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const VieCard = () => {
+        const { t } = useTranslation();
+    
     const snap = useSnapshot(state)
     const q = ()=>{
         let a = 0
@@ -27,7 +30,7 @@ const VieCard = () => {
         <span
         className='bg-[#0d0d0d40] px-3 py-1 rounded-full'
         >{q()}</span>
-        <span>View Basket ({price()} DA)</span>
+        <span>{t("View")} ({price()} DA)</span>
          </Link>
   )
 }
