@@ -26,7 +26,7 @@ getBestOffer()
     ))
   return (
     <div
-    className='w-full overflow-x-scroll a flex pl-5 my-2.5'
+    className='w-full  flex flex-wrap pl-5 my-2.5'
     >{Loading ?
      <PlaceholderList />
       : ourBest}</div>
