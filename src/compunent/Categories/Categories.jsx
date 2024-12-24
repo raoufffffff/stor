@@ -7,7 +7,7 @@ const Categories = () => {
   
     const ourTypes = types.map(e => (
         <Link to={`type/${e.name}`} key={e.name}
-        className='min-w-[30%] lg:w-[15%]  flex flex-col items-center'
+        className='min-w-[25%] lg:min-w-[15%]  flex flex-col items-center'
         >
             <img 
             className='rounded-xl'
@@ -20,7 +20,7 @@ const Categories = () => {
     ))
   return (
     <div
-    className='flex a w-full  gap-3 overflow-x-scroll mt-5 '
+    className='flex  w-full px-2 gap-3 overflow-x-scroll a mt-5 '
     >
         {ourTypes}
     </div>

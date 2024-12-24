@@ -57,7 +57,8 @@ const BestOfferCard = ({item}) => {
     initial={{ scale: 0 }}
     animate={{ scale: 1 }}
     transition={{ duration: 1, type: "spring" }}
-className="w-[45%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:w-3/12 lg:w-[21%] md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[280px] min-h-[280px] hover:shadow-xl hover:scale-105"  >
+    className="w-[45%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:w-3/12 lg:w-[21%] md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[280px] min-h-[280px] hover:shadow-xl hover:scale-105"
+    >
     {existingItem?.q > 0 && (
       <div className="absolute top-2 left-0 w-full flex justify-between px-1">
         <button onClick={handleRemoveItem} aria-label="Remove Item">
@@ -75,8 +76,8 @@ className="w-[45%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:w-3/12 lg:w-[21%
     <img
       src={item.img}
       alt={item.name}
-      className="min-h-[80px] max-h-[80px] w-full"
-    />
+      className="min-h-[160px] max-h-[160px] w-full"
+      />
     <p className="one-line mt-3 text-center font-medium px-5">{item.name}</p>
     <div className="flex mt-auto flex-col">
       <div className="flex items-center px-3">

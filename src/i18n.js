@@ -9,9 +9,11 @@ const resources = {
     translation: {
       bestOffer: "Best Offer",
       categories: "Categories",
+      footerhaed: "Welcome to Daily Shop",
       footertext:
-        "dailyShop offers you a hassle-free online shopping experience by bringing all your local supermarkets, pharmacies, restaurants, bakeries, butcheries, pet shops & more to your fingertips.",
+        "We are in the beta version of our platform that aims to facilitate the supermarket shopping experience. We offer you a service to deliver food directly to your doorstep quickly and easily, saving you time and effort. We seek to improve our services based on your feedback to always be up to your expectations!",
         offer: "Offer",
+        body: "Cleanliness and body care",
         dairy_and_eggs: "Dairy & Eggs",
         nuts_and_seeds: "Nuts & Seeds",
         chips_and_snacks: "Chips & Snacks",
@@ -20,6 +22,10 @@ const resources = {
         household_care: "Household Care",
         cans_and_jars: "Cans & Jars",
         baby_care: "Baby Care",
+        Pastries: "Pastries",
+        coffe: "Coffee and tea",
+        candy: "Preparing sweets",
+        sals: "Spices and sauces",
         text: "Your Cart",
         deliveryTime: "Delivery Time: {{time}}",
         todayEvening: "Today Evening",
@@ -52,18 +58,24 @@ const resources = {
     translation: {
       bestOffer: "أفضل عرض",
       categories: "التصنيفات",
+      footerhaed: "مرحبا بكم في دايلي شوب",
       footertext:
-        "يقدم لك دايلي شوب تجربة تسوق عبر الإنترنت خالية من المتاعب من خلال وضع جميع محلات السوبر ماركت والصيدليات والمطاعم والمخابز ومحلات الجزارة ومتاجر الحيوانات الأليفة والمزيد في متناول يدك.",
+        "نحن في النسخة التجريبية من منصتنا التي تهدف إلى تسهيل تجربة التسوق من السوبرماركت. نقدم لكم خدمة توصيل المواد الغذائية مباشرة إلى باب منزلكم بسرعة وسهولة، مما يوفر عليكم الوقت والجهد. نسعى لتحسين خدماتنا بناءً على ملاحظاتكم لنكون دائماً عند حسن ظنكم!",
+        // 
         offer: "العروض",
-        dairy_and_eggs: "منتجات الألبان والبيض",
-        nuts_and_seeds: "المكسرات والبذور",
-        chips_and_snacks: "الرقائق والوجبات الخفيفة",
-        chocolates: "الشوكولاتة",
-        soft_drinks_and_juices: "المشروبات الغازية والعصائر",
-        household_care: "العناية المنزلية",
-        cans_and_jars: "العلب والبرطمانات",
+        dairy_and_eggs: "بيض و مشتقات الحليب",
+        nuts_and_seeds: "البقوليات",
+        chocolates: "بسكويت و شوكولاته",
+        soft_drinks_and_juices: "مشروبات",
+        household_care: "مواد التنضيف و الغسيل",
+        cans_and_jars: "المعلبات",
+        body: "نضافة و العناية بالجسم",
         baby_care: "رعاية الأطفال",
-        text: "عربة التسوق الخاصة بك",
+        Pastries: "العجائن",
+        coffe: "قهوة و شاي",
+        candy: "تحضير الحلويات",
+        sals: "بهارات و الصلصات",
+        text: "السلة",
         deliveryTime: "وقت التوصيل: {{time}}",
         todayEvening: "مساء اليوم",
         tomorrowEvening: "مساء الغد",
@@ -95,8 +107,9 @@ const resources = {
     translation: {
       bestOffer: "Meilleure Offre",
       categories: "Catégories",
+      footerhaed: "Bienvenue à la boutique quotidienne",
       footertext:
-        "dailyshop vous offre une expérience d'achat en ligne sans tracas en mettant à portée de main tous vos supermarchés, pharmacies, restaurants, boulangeries, boucheries, animaleries locales et plus encore.",
+        "Nous sommes dans la version bêta de notre plateforme qui vise à faciliter l'expérience d'achat en supermarché. Nous vous proposons un service de livraison de nourriture directement à votre porte, rapidement et facilement, vous faisant gagner du temps et des efforts. Nous nous efforçons d'améliorer nos services en fonction de vos commentaires pour toujours être à la hauteur de vos attentes !",
         offer: "Offre",
         dairy_and_eggs: "Produits Laitiers & Œufs",
         nuts_and_seeds: "Noix & Graines",
@@ -106,6 +119,11 @@ const resources = {
         household_care: "Entretien Ménager",
         cans_and_jars: "Boîtes & Bocaux",
         baby_care: "Soins pour Bébé",
+        body: "Propreté et soins du corps",
+        Pastries: "Pastries",
+        coffe: "Café et thé",
+        candy: "Préparation de bonbons",
+        sals: "Épices et sauces",
         text: "Votre Panier",
         deliveryTime: "Heure de livraison: {{time}}",
         todayEvening: "Ce soir",
@@ -145,7 +163,7 @@ i18n
   .use(initReactI18next) // Bind react-i18next to the instance
   .init({
     resources, // Set translation resources
-    fallbackLng: "en", // Fallback language if no translation is available
+    fallbackLng: "ar", // Fallback language if no translation is available
     interpolation: {
       escapeValue: false, // React already escapes by default
     },

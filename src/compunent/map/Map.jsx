@@ -98,9 +98,9 @@ getpotion(markerPosition);
           </button>
           <button
             onClick={handleLocateClick}
-            className=" ml-1     px-3  rounded-lx w-2/12 "
+            className=" ml-1  px-3  rounded-lx w-2/12 heartbeat "
           >
-            <FaLocationArrow color='#dd2a5b' size={20} />
+            <FaLocationArrow color='#43ae3e' size={20} />
           </button>
         </div>
       </div>

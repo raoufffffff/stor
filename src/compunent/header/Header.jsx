@@ -9,7 +9,7 @@ import Lang from "../lan/Lang";
 
 const Header = () => {
   const location = useLocation();
-          const { t } = useTranslation();
+  const { t } = useTranslation();
   const { i18n } = useTranslation();
   const [show, setshow] = useState(false)
 const hide = ()=> setshow(false)

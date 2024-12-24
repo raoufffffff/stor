@@ -15,11 +15,11 @@ const Home = () => {
   return (
     <div className="w-full">
       <Adds />
+    
       <h1 className="font-bold text-xl mt-3 px-5">{t("categories")}</h1>
       <Categories />
       <h1 className="font-bold text-xl mt-3 px-5">{t("bestOffer")}</h1>
       <BestOffer />
-      
       <AnimatePresence>{snap.items.length > 0 && <VieCard />}</AnimatePresence>
     </div>
   );
