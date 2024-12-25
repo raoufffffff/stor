@@ -6,6 +6,7 @@ import { useSnapshot } from 'valtio'
 import state from '../../stor/stor'
 import { AnimatePresence } from 'motion/react'
 import VieCard from '../../compunent/Add/VieCard'
+import Categories from '../../compunent/Categories/Categories'
 
 const Type = () => {
   const snap = useSnapshot(state)
@@ -18,7 +19,7 @@ const Type = () => {
     },[])
   return (
         <div
-        className='flex flex-col min-h-screen overflow-y-hidden relative md:flex-row w-full gap-1 mt-5'
+        className='flex flex-col min-h-screen overflow-y-hidden relative  w-full  mt-5'
         >
             <TyoeLinks id={id} />
            <Items id={id}/>

@@ -30,12 +30,6 @@ const Lang = ({hide}) => {
       >
         <h2 className="text-2xl font-bold text-[#dd2a5b] mb-4">Select Language</h2>
         <button
-          onClick={() => changeLanguage("en")}
-          className="w-32 px-4 py-2 text-sm font-medium text-white bg-[#dd2a5b] border-2 border-[#dd2a5b] rounded-lg hover:bg-white hover:text-[#dd2a5b] transition-all"
-        >
-          English
-        </button>
-        <button
           onClick={() => changeLanguage("ar")}
           className="w-32 px-4 py-2 text-sm font-medium text-white bg-[#dd2a5b] border-2 border-[#dd2a5b] rounded-lg hover:bg-white hover:text-[#dd2a5b] transition-all"
         >

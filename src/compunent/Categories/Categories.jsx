@@ -2,12 +2,12 @@ import React from 'react'
 import types from '../../constanst/types'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
-const Categories = () => {
+const Categories = ({small}) => {
     const { t } = useTranslation(); // Get the translation function
   
     const ourTypes = types.map(e => (
-        <Link to={`type/${e.name}`} key={e.name}
-        className='min-w-[25%] lg:min-w-[15%]  flex flex-col items-center'
+        <Link to={`/type/${e.name}`} key={e.name}
+        className={`${small ? "min-w-[15%]  flex flex-col items-center" : "min-w-[25%] lg:min-w-[15%]  flex flex-col items-center"}`}
         >
             <img 
             className='rounded-xl'

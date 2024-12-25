@@ -4,8 +4,9 @@ import PlaceholderList from '../Loading/BestPlaceHoleder'
 
 import axios from 'axios'
 import ItemCard from '../item/ItemCard'
+import { useSearchParams } from 'react-router-dom'
 const Items = ({id}) => {
-  const body = id == "offer" ? {offer: true} : {type: id}
+  const [searchparams] = useSearchParams();
   const [loading, setLoading] = useState(true)
     const [BestOffer, setBestOffer] = useState([])
   useEffect(()=>{
@@ -33,13 +34,18 @@ const getItems = async ()=>{
   
   return (
     <div
-    className=' w-full pb-5 md:w-9/12 ml-auto flex justify-center items-center flex-wrap '
+    className=' w-full pb-5  ml-auto flex justify-center items-center flex-wrap '
     >
       <AnimatePresence>
 
         {
-        loading ? <PlaceholderList /> : 
-        BestOffer.map((e, i )=> (
+        loading ? <PlaceholderList /> :
+        searchparams.get("typeof") ?
+        BestOffer.filter(e => e.typeoftype == searchparams.get("typeof")).map((e, i )=> (
+          <ItemCard key={i} item={e}/>
+         ))  
+        : 
+         BestOffer.map((e, i )=> (
           <ItemCard key={i} item={e}/>
          ))  
          }
