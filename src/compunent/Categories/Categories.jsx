@@ -13,11 +13,11 @@ const Categories = ({small}) => {
             className='rounded-xl'
             src={e.img}
             />
-            <span
+           {!small && <span
             className='mt-2 text-xs font-semibold text-center'
-            >{t(e.key)}</span>
+            >{t(e.key)}</span>}
         </Link>
-    ))
+    )) 
   return (
     <div
     className='flex  w-full px-2 gap-3 overflow-x-scroll a mt-5 '

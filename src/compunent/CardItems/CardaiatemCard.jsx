@@ -33,7 +33,7 @@ const CardaiatemCard = ({e, i}) => {
     initial={{x: -1000}}
     animate={{x: 0}}
     transition={{delay: 0.2 + ((i / 10 + 0.1) * 2), duration: 0.3, type: "spring"}}
-    className='w-full md:w-5/12 flex mb-3 pb-1 relative'
+    className='w-full md:w-5/12 flex md:max-h-[150px] mb-3 pb-1 relative'
     >
         <div
         className='w-3/12 relative'

@@ -78,7 +78,8 @@ const ItemCard = ({ item }) => {
         alt={item.name}
         className="min-h-[160px] max-h-[160px] w-full"
       />
-      <p className="one-line mt-3 text-center font-medium px-5">{item.name}</p>
+      <p className="one-line mt-3 text-center font-medium px-1">{item.name}</p>
+      <p className="one-line text-[#0008]  mr-auto mt-auto font-medium px-5">{item.g}</p>
       <div className="flex mt-auto flex-col">
         <div className="flex items-center px-3">
           <span
@@ -89,7 +90,7 @@ const ItemCard = ({ item }) => {
             {item.price} DA
           </span>
           {item.offer && (
-            <span className="ml-2 underline">{item.newprice} DA</span>
+            <span className="ml-2 text-[#dd2a5b] underline">{item.newprice} DA</span>
           )}
         </div>
       </div>

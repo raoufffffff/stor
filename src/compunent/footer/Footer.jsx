@@ -20,7 +20,7 @@ const Footer = () => {
       >
       <HiShoppingCart color='#dd2a5b' className='mr-1' size={30}/>
     
-    DailyShoop
+    DailySphope
       </span>
       <h3
       className='text-center my-2'

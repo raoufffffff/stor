@@ -45,7 +45,7 @@ export default [
     },
     {
         name: "sals",
-        types: ["other"]
+        types: []
     }
 
 ]

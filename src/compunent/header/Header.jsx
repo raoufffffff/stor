@@ -35,7 +35,7 @@ const hide = ()=> setshow(false)
         className="flex mx-auto items-center text-2xl font-bold text-white"
       >
         <HiShoppingCart color="#fff" className="mr-1" size={30} />
-        DailyShoop
+        DailySphope
       </Link>
 
       {/* Search Bar */}

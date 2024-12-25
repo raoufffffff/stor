@@ -58,7 +58,7 @@ const BestOfferCard = ({item}) => {
     animate={{ scale: 1 }}
     transition={{ duration: 1, type: "spring" }}
     className="w-[45%] pb-1.5 relative my-2 mx-0.5 flex flex-col md:w-3/12 lg:w-[21%] md:mx-2 border bg-white border-gray-200 rounded-lg overflow-hidden max-h-[280px] min-h-[280px] hover:shadow-xl hover:scale-105"
-    >
+  >
     {existingItem?.q > 0 && (
       <div className="absolute top-2 left-0 w-full flex justify-between px-1">
         <button onClick={handleRemoveItem} aria-label="Remove Item">
@@ -77,24 +77,25 @@ const BestOfferCard = ({item}) => {
       src={item.img}
       alt={item.name}
       className="min-h-[160px] max-h-[160px] w-full"
-      />
-    <p className="one-line mt-3 text-center font-medium px-5">{item.name}</p>
+    />
+    <p className="one-line mt-3 text-center font-medium px-1">{item.name}</p>
+    <p className="one-line text-[#0008]  mr-auto mt-auto font-medium px-5">{item.g}</p>
     <div className="flex mt-auto flex-col">
       <div className="flex items-center px-3">
         <span
           className={`ml-auto font-normal ${
-            item.offer ? "line-through text-xs text-gray-600 font-medium" : ""
+            item.offer ? "line-through text-sm text-gray-600 font-medium" : ""
           }`}
         >
           {item.price} DA
         </span>
         {item.offer && (
-          <span className="ml-1 underline">{item.newprice} DA</span>
+          <span className="ml-2 text-[#dd2a5b] underline">{item.newprice} DA</span>
         )}
       </div>
     </div>
     <Link
-      to={`/?item=${item._id}`}
+      to={`/type/${item.type}/?item=${item._id}`}
       className="absolute right-1 top-[55%]"
       onClick={(event) => event.stopPropagation()}
       aria-label="View Item Details"
