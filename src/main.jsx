@@ -17,7 +17,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='card' element={<Card />} />
     <Route path='checkout' element={<Checkout />} />
     <Route path='thanks' element={<Thanks />} />
-    
+
   </Route>
 ));
 

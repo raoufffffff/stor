@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
@@ -21,7 +21,7 @@ const Item = () => {
         );
         setMyItem(response.data.result);
         setLoading(false);
-      } catch (err) {
+      } catch {
         setError("Failed to fetch item details.");
         setLoading(false);
       }
@@ -39,18 +39,18 @@ const Item = () => {
 
   return (
     <motion.div
-    initial={{y: 1000}}
-    animate={{y: 0}}
-    exit={{y: 1000}}
-    transition={{duration: 0.5, type: "spring"}}
+      initial={{ y: 1000 }}
+      animate={{ y: 0 }}
+      exit={{ y: 1000 }}
+      transition={{ duration: 0.5, type: "spring" }}
       className="fixed z-50 flex justify-center items-center w-full h-screen left-0 top-0 bg-black/60 backdrop-blur-sm"
     >
       <motion.div
-       initial={{scale: 0}}
-       animate={{scale: 1}}
-       exit={{scale: 0}}
-       transition={{duration: 0.5, delay:0.5 , type: "spring"}}
-      className="bg-white relative flex flex-col w-10/12 md:w-6/12 h-4/6 overflow-y-auto rounded-xl shadow-lg">
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0 }}
+        transition={{ duration: 0.5, delay: 0.5, type: "spring" }}
+        className="bg-white relative flex flex-col w-10/12 md:w-6/12 h-4/6 overflow-y-auto rounded-xl shadow-lg">
         {/* Close Button */}
         <IoCloseSharp
           onClick={closeModal}

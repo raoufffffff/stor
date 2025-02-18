@@ -52,24 +52,24 @@ const Card = () => {
     return <CardaiatemCard e={e} key={i} i={i} />;
   });
 
-  const sendOrder = async () => {
-    try {
-      await axios
-        .post('https://daily-api.onrender.com/order', {
-          user: state.user.name,
-          price: price(),
-          ride: des(state.user.position),
-          phone: state.user.phone,
-          location: { location: state.user.position },
-          items: state.items,
-        })
-        .then(() => {
-          state.items = [];
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const sendOrder = async () => {
+  //   try {
+  //     await axios
+  //       .post('https://daily-api.onrender.com/order', {
+  //         user: state.user.name,
+  //         price: price(),
+  //         ride: des(state.user.position),
+  //         phone: state.user.phone,
+  //         location: { location: state.user.position },
+  //         items: state.items,
+  //       })
+  //       .then(() => {
+  //         state.items = [];
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     const scroold = () => {
@@ -95,65 +95,52 @@ const Card = () => {
         {snap.items.length > 0 ? ourCardItems : <EmptyItems />}
       </div>
       <div className={`w-full border-t mt-10 border-t-gray-500 relative`}>
-        {searchparams.get('thanks') ? (
-          <Thanks />
-        ) : (
+
+        <div className='px-4 w-fit absolute -top-[15%] md:-top-[10%] z-40 rounded-lg bg-[#dd2a5b] text-white text-center left-[50%] translate-x-[-50%] border border-gray-500'>
+          {t('deliveryTime', {
+            time: time > 17 ? t('tomorrowEvening') : t('todayEvening'),
+          })}
+        </div>
+        <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-10'>
+          {t('total')}: <span className='font-bold'>{price()} DA</span>
+        </div>
+        {state.user.position && (
           <>
-            <div className='px-4 w-fit absolute -top-[15%] md:-top-[10%] z-40 rounded-lg bg-[#dd2a5b] text-white text-center left-[50%] translate-x-[-50%] border border-gray-500'>
-              {t('deliveryTime', {
-                time: time > 17 ? t('tomorrowEvening') : t('todayEvening'),
-              })}
+            <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-2'>
+              {t('deliveryCost')}: <span className='font-bold'>{des(state.user.position)} DA</span>
             </div>
-            <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-10'>
-              {t('total')}: <span className='font-bold'>{price()} DA</span>
+            <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-2'>
+              {t('serviceCost')}: <span className='font-bold'>0 DA</span>
             </div>
-            {state.user.position && (
-              <>
-                <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-2'>
-                  {t('deliveryCost')}: <span className='font-bold'>{des(state.user.position)} DA</span>
-                </div>
-                <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-2'>
-                  {t('serviceCost')}: <span className='font-bold'>0 DA</span>
-                </div>
-                <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-2'>
-                  {t('finalTotal')}: <span className='font-bold'>{price() + des(state.user.position)} DA</span>
-                </div>
-              </>
-            )}
-            <p className='my-5 text-center text-[#777]'>{t('priceChangeNote')}</p>
-            {!state.user.position ? (
-              <motion.div
-                animate={
-                  animate
-                    ? {
-                        x: [0, -10, 10, -10, 10, -8, 8, -8, 8, 0],
-                      }
-                    : {}
-                }
-                transition={{
-                  duration: 1,
-                  ease: 'easeInOut',
-                }}
-              >
-                <Link
-                  onClick={handleAnimation}
-                  className={`w-9/12 flex mb-5 text-white rounded-2xl justify-center py-2 mx-auto md:w-6/12 bg-[#dd2a5b]`}
-                  to={`/${snap.items.length > 0 ? 'card/?checkout=true' : 'card'}`}
-                >
-                  {t('next')}
-                </Link>
-              </motion.div>
-            ) : (
-              <Link
-                to={'/card/?thanks=true'}
-                onClick={sendOrder}
-                className='w-9/12 bg-[#dd2a5b] mt-5 flex justify-center rounded-2xl mx-auto text-center py-1 text-white'
-              >
-                {t('sendOrder')}
-              </Link>
-            )}
+            <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-2'>
+              {t('finalTotal')}: <span className='font-bold'>{price() + des(state.user.position)} DA</span>
+            </div>
           </>
         )}
+        <p className='my-5 text-center text-[#777]'>{t('priceChangeNote')}</p>
+
+        <motion.div
+          animate={
+            animate
+              ? {
+                x: [0, -10, 10, -10, 10, -8, 8, -8, 8, 0],
+              }
+              : {}
+          }
+          transition={{
+            duration: 1,
+            ease: 'easeInOut',
+          }}
+        >
+          <Link
+            onClick={handleAnimation}
+            className={`w-9/12 flex mb-5 text-white rounded-2xl justify-center py-2 mx-auto md:w-6/12 bg-[#dd2a5b]`}
+            to={`/${snap.items.length > 0 ? 'checkout' : 'card'}`}
+          >
+            {t('next')}
+          </Link>
+        </motion.div>
+
       </div>
       {searchparams.get('checkout') && <Checkout />}
     </motion.div>

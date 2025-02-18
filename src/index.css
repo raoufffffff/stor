@@ -28,9 +28,9 @@ body{
   text-overflow: ellipsis; /* Optional: adds "..." for overflow */
   }
 
-  .shake-horizontal {
-    -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-            animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+.shake-horizontal {
+    -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+            animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
   }
 
   /* ----------------------------------------------

@@ -12,19 +12,19 @@ const Header = () => {
   const { t } = useTranslation();
   const { i18n } = useTranslation();
   const [show, setshow] = useState(false)
-const hide = ()=> setshow(false)
+  const hide = () => setshow(false)
   // Change the `dir` attribute based on the current language
   useEffect(() => {
     const handleDirChange = () => {
       const dir = i18n.language === "ar" ? "rtl" : "ltr";
       document.documentElement.setAttribute("dir", dir);
     };
-  
+
     handleDirChange();
   }, [i18n.language]);
-  
 
-  
+
+
   return (
     <header
       className={`flex flex-wrap px-5 py-1.5 lg:py-3 items-center lg:justify-between bg-[#dd2a5b] transition-all fixed top-0 left-0 z-50 w-full`}
@@ -35,7 +35,7 @@ const hide = ()=> setshow(false)
         className="flex mx-auto items-center text-2xl font-bold text-white"
       >
         <HiShoppingCart color="#fff" className="mr-1" size={30} />
-        DailySphope
+        DailyShope
       </Link>
 
       {/* Search Bar */}
@@ -55,11 +55,11 @@ const hide = ()=> setshow(false)
       {/* Language Switcher */}
 
       <button
-      onClick={()=> setshow(true)}
-          className="absolute right-5 bottom-4"
-        >
-          <IoLanguage size={22} color="#fff" />
-        </button>
+        onClick={() => setshow(true)}
+        className="absolute right-5 bottom-4"
+      >
+        <IoLanguage size={22} color="#fff" />
+      </button>
       {/* Back Button */}
       {location.pathname !== "/" && (
         <Link
