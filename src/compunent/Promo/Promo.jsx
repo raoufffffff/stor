@@ -1,7 +1,30 @@
+import axios from "axios";
 import { motion } from "motion/react";
+import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
-const Promo = ({ hide }) => {
+const Promo = ({ hide, changecoodes }) => {
+    const [cood, setCood] = useState("");
+    const [err, setErr] = useState(false);
+    const [good, setGood] = useState(false);
+
+    const getPromo = async () => {
+        try {
+            await axios
+                .put(`https://daily-api-tan.vercel.app/code/${cood}`)
+                .then((res) => {
+                    if (!res.data.good) {
+                        setErr(true);
+                        return;
+                    }
+                    setGood(true);
+                    changecoodes(res.data.result);
+                });
+        } catch {
+            setErr(true);
+        }
+    };
+
     return (
         <motion.div
             initial={{ y: 1000 }}
@@ -15,32 +38,70 @@ const Promo = ({ hide }) => {
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
                 transition={{ duration: 0.5, delay: 0.5, type: "spring" }}
-                className="bg-white relative flex flex-col w-10/12 md:w-6/12  overflow-y-auto rounded-xl shadow-lg  py-3 px-5">
-                {/* Close Button */}
+                className="bg-white relative flex flex-col w-10/12 md:w-6/12 overflow-y-auto rounded-xl shadow-lg py-3 px-5"
+            >
+                {/* Bouton de fermeture */}
                 <IoCloseSharp
                     onClick={hide}
                     size={30}
                     className="absolute top-1 right-4 text-gray-600 cursor-pointer hover:text-purple-600 transition-colors"
                 />
-                <p>Appliquer un code promo</p>
-                <input
-                    type="text"
-                    className='w-full md:w-8/12 px-5 py-1  my-3 border border-[#0007] rounded-xl shadow-sm focus:ring-2 focus:ring-[#dd2a5b] focus:outline-none  text-gray-700'
-                />
-                <div
-                    className="w-full flex justify-end"
-                >
-                    <button
-                        onClick={hide}
-                        className="mx-1 bg-[#3338] text-white uppercase text-xs p-2 rounded-xl"
-                    >fermer</button>
-                    <button
-                        className="mx-1 bg-[#dd2a5b] text-white uppercase text-xs p-2 rounded-xl"
-                    >appliquer</button>
-                </div>
+
+                {good ? (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex flex-col items-center justify-center p-4"
+                    >
+                        <p className="text-green-600 text-4xl">✅</p>
+                        <h1 className="text-green-600 text-xl font-bold mt-2 text-center">
+                            Votre code promo a été appliqué !
+                        </h1>
+                    </motion.div>
+                ) : err ? (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex flex-col items-center justify-center p-4"
+                    >
+                        <p className="text-red-600 text-4xl">❌</p>
+                        <h1 className="text-red-600 text-xl text-center font-bold mt-2">
+                            Le code promo n'existe pas ou a expiré.
+                        </h1>
+                    </motion.div>
+                ) : (
+                    <>
+                        <p className="mb-3">Appliquer un code promo</p>
+                        <input
+                            value={cood}
+                            onChange={(e) => {
+                                setCood(e.currentTarget.value);
+                                setErr(false);
+                            }}
+                            type="text"
+                            className="w-full md:w-8/12 px-5 py-1 mb-3 border border-[#0007] rounded-xl shadow-sm focus:ring-2 focus:ring-[#dd2a5b] focus:outline-none text-gray-700"
+                        />
+                        <div className="w-full flex justify-end">
+                            <button
+                                onClick={hide}
+                                className="mx-1 bg-[#3338] text-white uppercase text-xs p-2 rounded-xl"
+                            >
+                                Fermer
+                            </button>
+                            <button
+                                onClick={getPromo}
+                                className="mx-1 bg-[#dd2a5b] text-white uppercase text-xs p-2 rounded-xl"
+                            >
+                                Appliquer
+                            </button>
+                        </div>
+                    </>
+                )}
             </motion.div>
         </motion.div>
-    )
-}
+    );
+};
 
-export default Promo
+export default Promo;
