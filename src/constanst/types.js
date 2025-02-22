@@ -3,7 +3,7 @@ export default [
     {
         name: "offer",
         key: "offer",
-        img: "https://cdn.instashop.ae/c6f6678f4b5ff11c10e2d3c7b590e9f6_CatImage.jpg"
+        img: "https://cdn-icons-png.flaticon.com/512/2956/2956869.png"
     },
     {
         name: "Dairy & Eggs",
@@ -39,8 +39,8 @@ export default [
         name: "Baby Care",
         key: "baby_care",
         img: "/types/babycare.png"
-    }, 
-     {
+    },
+    {
         name: "body",
         key: "body",
         img: "/types/body.png"

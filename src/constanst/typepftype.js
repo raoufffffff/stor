@@ -1,7 +1,7 @@
 export default [
     {
         name: "Dairy & Eggs",
-        types: ["Milk_yogurt", "soft_cheese", "yaourt", "egg", "dry_milk_powder", "Various_cheeses","Fresh_cream_and_bechamel", "other"]
+        types: ["Milk_yogurt", "soft_cheese", "yaourt", "egg", "dry_milk_powder", "Various_cheeses", "Fresh_cream_and_bechamel", "other"]
     },
     {
         name: "Soft Drinks & Juices",
@@ -17,23 +17,23 @@ export default [
     },
     {
         name: "Chocolates",
-        types: ["Chocolates", "biscuit", "Madeleine", "gofrit","Cakes", "Nuts", "Cereal_flakes", "other"]
+        types: ["Chocolates", "biscuit", "Madeleine", "gofrit", "Cakes", "Nuts", "Cereal_flakes", "other"]
     },
     {
         name: "Household Care",
-        types: ["javal", "Hand_wash","Machine_wash", "wash_the_dishes", "Surface_cleaning", "Air_freshener","fabric_softener", "other"]
+        types: ["javal", "Hand_wash", "Machine_wash", "wash_the_dishes", "Surface_cleaning", "Air_freshener", "fabric_softener", "other"]
     },
     {
         name: "Baby Care",
         types: ["Baby_diapers", "baby_milk", "Clean_and_care_for_children", "other"]
-    }, 
+    },
     {
         name: "body",
-        types: ["shampoing","shower_gel","deodorant","scented_soap","Liquid_soap","Oral_and_dental_care","other"]
+        types: ["shampoing", "shower_gel", "deodorant", "scented_soap", "Liquid_soap", "Oral_and_dental_care", "other"]
     },
     {
         name: "Pastries",
-        types: ["spagity","riz","macaroni","Traditional_Pastries","other"]
+        types: ["spagity", "Boulangerie", "riz", "macaroni", "Traditional_Pastries", "other"]
     },
     {
         name: "coffe",
@@ -41,11 +41,11 @@ export default [
     },
     {
         name: "candy",
-        types: ["Chocolate_and_cream", "semolina", "oil", "flour", "margarine", "starch","Sugar_and_honey","jam", "other"]
+        types: ["Chocolate_and_cream", "semolina", "oil", "flour", "margarine", "starch", "Sugar_and_honey", "jam", "other"]
     },
     {
         name: "sals",
-        types: []
+        types: ["Sauces", "épices", "other"]
     }
 
 ]

@@ -106,7 +106,7 @@ const resources = {
       oil: "زيت",
       flour: "دقيق",
       margarine: "مارغرين",
-      starch: "نشاء و درة",
+      starch: "نشاء و خميرة",
       Sugar_and_honey: "سكر وعسل",
       jam: "مربى",
       coffe: "قهوة",
@@ -114,7 +114,10 @@ const resources = {
       tea: "شاي",
       Drinks_to_prepare: "مشروبات للتحضير",
       all: "الكل",
-      promo: "تطبيق رمز ترويجي"
+      promo: "تطبيق رمز ترويجي",
+      Sauces: "الصلصات",
+      épices: "بهارات",
+      Boulangerie: "مخبوزات"
     },
   },
   fr: {
@@ -218,7 +221,7 @@ const resources = {
       oil: "Huile",
       flour: "Farine",
       margarine: "Margarine",
-      starch: "Amidon & Maïs",
+      starch: "Amidon & levure",
       Sugar_and_honey: "Sucre et Miel",
       jam: "Confiture",
       coffe: "Café",
@@ -226,7 +229,10 @@ const resources = {
       tea: "Thé",
       Drinks_to_prepare: "Boissons à Préparer",
       all: "tout",
-      promo: "Appliquer un code promo"
+      promo: "Appliquer un code promo",
+      Sauces: "Sauces",
+      épices: "épices",
+      Boulangerie: "Boulangerie"
 
     }
 
