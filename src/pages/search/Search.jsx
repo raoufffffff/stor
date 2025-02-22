@@ -36,7 +36,7 @@ const Search = () => {
     >
       <h1
         className='font-bold text-xl my-3 px-5'
-      >search for "{searchParams.get("to")}"</h1>
+      >search for {`"`}{searchParams.get("to")}{`"`}</h1>
       <div
         className='w-full  flex justify-center items-center flex-wrap  my-2.5'
       >{Loading ?
