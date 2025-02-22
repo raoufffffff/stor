@@ -17,7 +17,7 @@ const Item = () => {
     const getItem = async () => {
       try {
         const response = await axios.get(
-          `https://daily-api.onrender.com/item/${itemParam}`
+          `https://daily-api-tan.vercel.app/item/${itemParam}`
         );
         setMyItem(response.data.result);
         setLoading(false);

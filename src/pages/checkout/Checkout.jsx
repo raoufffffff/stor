@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 import state from '../../stor/stor';
@@ -6,15 +6,17 @@ import { useTranslation } from 'react-i18next';
 import dz from '../../constanst/dz';
 import { IoPricetagOutline } from 'react-icons/io5';
 import Promo from '../../compunent/Promo/Promo';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
+  const navigation = useNavigate()
   const { t } = useTranslation();
   const snap = useSnapshot(state);
-  const [animate, setAnimate] = useState(false);
   const [show, setshow] = useState(false);
 
   const [info, setinfo] = useState({
-    name: "",
+    user: "",
     phone: "",
     position: { name: "", price: 0 }
   });
@@ -27,10 +29,12 @@ const Checkout = () => {
     position: false,
   });
 
-  const handleAnimation = () => {
-    setAnimate(true);
-    setTimeout(() => setAnimate(false), 1000);
-  };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+
+  }, [])
+
+
 
   const hide = () => setshow(false);
 
@@ -42,11 +46,44 @@ const Checkout = () => {
     return a;
   };
 
+  const finalprice = () => {
+    return promoCode.type == "descouante" ? (price() * (1 - (promoCode.per / 100))) : price()
+  };
+
+  const total = () => {
+    return promoCode.type == "free delevery" ? price() : promoCode.type == "descouante" ? (price() * (1 - (promoCode.per / 100))) + info.position.price : price() + info.position.price
+  }
+
+
+  const postOrder = async () => {
+    try {
+      await axios.post(`https://daily-api-tan.vercel.app/order`,
+        {
+          ...info,
+          price: finalprice(),
+          ride: info.position.price,
+          promo: promoCode.type ? true : false,
+          promotype: promoCode.type ? promoCode.type : "none",
+          items: snap.items,
+          location: info.position
+        }
+      )
+        .then(res => {
+          if (res.data.good) {
+            navigation('/thanks')
+            state.items = []
+          }
+        })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Check for empty fields
     const newErrors = {
-      name: info.name.trim() === "",
+      name: info.user.trim() === "",
       phone: info.phone.trim() === "",
       position: info.position.name.trim() === ""
     };
@@ -58,9 +95,9 @@ const Checkout = () => {
       window.scrollTo({ top: 0, behavior: "smooth" })
       return;
     }
-    // If no errors, continue with animation or form processing
-    handleAnimation();
+    postOrder()
   };
+  console.log(promoCode.type ? "hello" : "zbi");
 
   return (
     <motion.div
@@ -75,8 +112,8 @@ const Checkout = () => {
         className='flex flex-col items-center mt-6 w-11/12 mx-auto'
       >
         <input
-          value={info.name}
-          onChange={(e) => setinfo({ ...info, name: e.target.value })}
+          value={info.user}
+          onChange={(e) => setinfo({ ...info, user: e.target.value })}
           type='text'
           placeholder={t("name")}
           className={`w-10/12 md:w-8/12 px-5 py-2 rounded-xl shadow-sm focus:ring-2 focus:outline-none mb-3 text-gray-700 border ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-[#dd2a5b]'
@@ -128,19 +165,17 @@ const Checkout = () => {
             >{price()} DA</p>
             {promoCode.type == "descouante" && <p
               className='ml-4 text-green-700'
-            >{price() * (1 - (promoCode.per / 100))} DA</p>}
+            >{finalprice()} DA</p>}
           </div>
         </div>
 
         <div className='flex w-10/12 my-1 justify-between'>
           <p>{t("all")}</p>
-          <p className='text-green-600'>{
-            promoCode.type == "free delevery" ? price() : promoCode.type == "descouante" ? (price() * (1 - (promoCode.per / 100))) + info.position.price : price() + info.position.price} DA</p>
+          <p className='text-green-600'>{total()} DA</p>
         </div>
         <button
           type='submit'
-          className={`w-8/12 bg-[#dd2a5b] mt-5 flex justify-center rounded-xl text-center py-2 text-white text-lg font-semibold transition-all duration-300 ${animate ? "animate-shake" : "hover:bg-[#c7224b]"
-            }`}
+          className={`w-8/12 bg-[#dd2a5b] mt-5 flex justify-center rounded-xl text-center py-2 text-white text-lg font-semibold transition-all duration-300 `}
         >
           {t("Confirm")}
         </button>

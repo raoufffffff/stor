@@ -5,7 +5,7 @@ let state = proxy({
     user: {
         name: "",
         phone: "",
-         position: null
+        position: null
     }
 })
 

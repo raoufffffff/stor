@@ -55,7 +55,7 @@ const Card = () => {
   // const sendOrder = async () => {
   //   try {
   //     await axios
-  //       .post('https://daily-api.onrender.com/order', {
+  //       .post('https://daily-api-tan.vercel.app/order', {
   //         user: state.user.name,
   //         price: price(),
   //         ride: des(state.user.position),

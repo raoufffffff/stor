@@ -7,20 +7,20 @@ import Item from "./pages/item/Item"
 
 function App() {
   return (
-  <div
-  className="w-full"
-  >
-    <Header />
     <div
-    className="mt-[100px]"
+      className="w-full"
     >
-<AnimatePresence>
-  <Item />
-</AnimatePresence>
-    <Outlet />
+      <Header />
+      <div
+        className="mt-[100px]"
+      >
+        <AnimatePresence>
+          <Item />
+        </AnimatePresence>
+        <Outlet />
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
   )
 }
 
