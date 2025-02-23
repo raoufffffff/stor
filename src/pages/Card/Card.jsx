@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSnapshot } from 'valtio';
 import state from '../../stor/stor';
 import { motion } from 'motion/react';
@@ -7,13 +7,11 @@ import CardaiatemCard from '../../compunent/CardItems/CardaiatemCard';
 import EmptyItems from '../../compunent/EmptyItems/EmptyItems';
 import Checkout from '../checkout/Checkout';
 import { getDistance } from 'geolib';
-import Thanks from '../thanks/Thanks';
-import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 
 const Card = () => {
   const { t } = useTranslation();
-  const [searchparams, setsearchparams] = useSearchParams();
+  const [searchparams] = useSearchParams();
   const time = new Date().getHours();
   const snap = useSnapshot(state);
   const [animate, setAnimate] = useState(false);

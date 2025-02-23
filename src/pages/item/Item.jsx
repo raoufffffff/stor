@@ -3,10 +3,30 @@ import { useSearchParams } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
 import { motion } from "motion/react";
+import { useSnapshot } from "valtio";
+import state from "../../stor/stor";
+
 const Item = () => {
   const [myItem, setMyItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const snap = useSnapshot(state);
+
+  const handleAddItem = () => {
+    const existingItem = snap.items.find((e) => e.name === myItem.name);
+
+    if (existingItem) {
+      // Update the quantity for an existing item
+      state.items = state.items.map((e) =>
+        e.name === myItem.name ? { ...e, q: e.q + 1 } : e
+      );
+    } else {
+      // Add the new item with quantity 1
+      let n = { ...myItem, q: 1 };
+      state.items = [...state.items, n];
+    }
+    closeModal();
+  };
 
   const [searchParams, setSearchParams] = useSearchParams();
   const itemParam = searchParams.get("item");
@@ -30,10 +50,11 @@ const Item = () => {
     getItem();
   }, [itemParam]);
 
-  const closeModal = () => setSearchParams((prev) => {
-    prev.delete("item");
-    return new URLSearchParams(prev);
-  });
+  const closeModal = () =>
+    setSearchParams((prev) => {
+      prev.delete("item");
+      return new URLSearchParams(prev);
+    });
 
   if (!itemParam) return null;
 
@@ -50,7 +71,8 @@ const Item = () => {
         animate={{ scale: 1 }}
         exit={{ scale: 0 }}
         transition={{ duration: 0.5, delay: 0.5, type: "spring" }}
-        className="bg-white relative flex flex-col w-10/12 md:w-6/12 h-4/6 overflow-y-auto rounded-xl shadow-lg">
+        className="bg-white relative flex flex-col w-10/12 md:w-6/12 h-4/6 overflow-y-auto rounded-xl shadow-lg"
+      >
         {/* Close Button */}
         <IoCloseSharp
           onClick={closeModal}
@@ -84,8 +106,16 @@ const Item = () => {
               {myItem?.name || "Unknown Item"}
             </p>
             <div className="mt-4 px-4 text-center">
-              <p className="text-gray-600">{myItem?.description || "No description available."}</p>
+              <p className="text-gray-600">
+                {myItem?.description || "No description available."}
+              </p>
             </div>
+            <button
+              onClick={handleAddItem}
+              className="mt-4 px-6 py-2 bg-[#dd2a5b] text-white rounded-lg hover:bg-[#c12350] transition-all"
+            >
+              Add
+            </button>
           </div>
         )}
       </motion.div>

@@ -117,7 +117,10 @@ const resources = {
       promo: "تطبيق رمز ترويجي",
       Sauces: "الصلصات",
       épices: "بهارات",
-      Boulangerie: "مخبوزات"
+      Boulangerie: "مخبوزات",
+      SelectPosition: "حدد البلدية",
+      frais: "تكاليف التوصيل",
+      fproduits: "المشتريات"
     },
   },
   fr: {
@@ -232,7 +235,10 @@ const resources = {
       promo: "Appliquer un code promo",
       Sauces: "Sauces",
       épices: "épices",
-      Boulangerie: "Boulangerie"
+      Boulangerie: "Boulangerie",
+      SelectPosition: "Sélectionnez la municipalité",
+      frais: "frais de livraison",
+      fproduits: "المشتريات"
 
     }
 

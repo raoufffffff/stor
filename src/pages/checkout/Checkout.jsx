@@ -138,7 +138,7 @@ const Checkout = () => {
             setErrors({ ...errors, position: false });
           }}
         >
-          <option value="" disabled>{t("Select Position")}</option>
+          <option value="" disabled>{t("SelectPosition")}</option>
           {dz.map(e => (
             <option key={e.name} value={e.name}>{e.name}</option>
           ))}
@@ -151,11 +151,11 @@ const Checkout = () => {
           {t("promo")}
         </p>
         <div className='flex w-10/12 my-1 justify-between'>
-          <p>frais de livraison</p>
+          <p>{t("frais")}</p>
           <p className={`${promoCode.type == "free delevery" && "line-through"} py-2 px-4 rounded-xl bg-[#3337]`}>{info.position.price} DA</p>
         </div>
         <div className='flex w-10/12 my-1 justify-between'>
-          <p>fproduits</p>
+          <p>{t("fproduits")}</p>
           <div
             className='flex'
           >
