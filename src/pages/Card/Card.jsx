@@ -8,8 +8,11 @@ import EmptyItems from '../../compunent/EmptyItems/EmptyItems';
 import Checkout from '../checkout/Checkout';
 import { getDistance } from 'geolib';
 import { useTranslation } from 'react-i18next';
+import { logEvent } from 'firebase/analytics';
+import analytics from '../../firebase';
 
 const Card = () => {
+
   const { t } = useTranslation();
   const [searchparams] = useSearchParams();
   const time = new Date().getHours();
@@ -70,6 +73,8 @@ const Card = () => {
   // };
 
   useEffect(() => {
+    logEvent(analytics, `visit the card`)
+
     const scroold = () => {
       window.scrollTo({
         behavior: 'smooth',

@@ -8,6 +8,8 @@ import { IoPricetagOutline } from 'react-icons/io5';
 import Promo from '../../compunent/Promo/Promo';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { logEvent } from 'firebase/analytics';
+import analytics from '../../firebase';
 
 const Checkout = () => {
   const navigation = useNavigate()
@@ -31,6 +33,7 @@ const Checkout = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
+    logEvent(analytics, `visit checkout`)
 
   }, [])
 
@@ -97,7 +100,6 @@ const Checkout = () => {
     }
     postOrder()
   };
-  console.log(promoCode.type ? "hello" : "zbi");
 
   return (
     <motion.div

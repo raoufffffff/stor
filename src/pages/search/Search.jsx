@@ -7,14 +7,20 @@ import { AnimatePresence } from 'motion/react'
 import VieCard from '../../compunent/Add/VieCard'
 import { useSnapshot } from 'valtio'
 import state from '../../stor/stor'
+import analytics from '../../firebase'
+import { logEvent } from 'firebase/analytics'
+import { useTranslation } from 'react-i18next'
 
 const Search = () => {
+  const { t } = useTranslation();
+
   const [Loading, setLoading] = useState(true)
   const snap = useSnapshot(state);
 
   const [searchParams] = useSearchParams()
   const [items, setitems] = useState([])
   useEffect(() => {
+    logEvent(analytics, `search for <${searchParams.get("to")}>`)
     const getItem = async () => {
       try {
         const res = await axios.get("https://daily-api-tan.vercel.app/item")
@@ -36,7 +42,7 @@ const Search = () => {
     >
       <h1
         className='font-bold text-xl my-3 px-5'
-      >search for {`"`}{searchParams.get("to")}{`"`}</h1>
+      >{t("searchfor")} {`"`}{searchParams.get("to")}{`"`}</h1>
       <div
         className='w-full  flex justify-center items-center flex-wrap  my-2.5'
       >{Loading ?

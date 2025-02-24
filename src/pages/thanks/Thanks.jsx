@@ -2,10 +2,13 @@ import { useEffect } from 'react'
 import s from '../../assets/sh.png'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
+import analytics from '../../firebase';
+import { logEvent } from 'firebase/analytics';
 const Thanks = () => {
   const { t } = useTranslation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
+    logEvent(analytics, `Complete the purchase process`)
 
   }, [])
   return (

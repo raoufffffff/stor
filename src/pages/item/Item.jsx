@@ -5,6 +5,9 @@ import axios from "axios";
 import { motion } from "motion/react";
 import { useSnapshot } from "valtio";
 import state from "../../stor/stor";
+import { logEvent } from "firebase/analytics";
+import analytics from "../../firebase";
+
 
 const Item = () => {
   const [myItem, setMyItem] = useState(null);
@@ -14,7 +17,6 @@ const Item = () => {
 
   const handleAddItem = () => {
     const existingItem = snap.items.find((e) => e.name === myItem.name);
-
     if (existingItem) {
       // Update the quantity for an existing item
       state.items = state.items.map((e) =>
@@ -41,6 +43,8 @@ const Item = () => {
         );
         setMyItem(response.data.result);
         setLoading(false);
+        logEvent(analytics, `item details > ${response.data.result.name}`)
+
       } catch {
         setError("Failed to fetch item details.");
         setLoading(false);

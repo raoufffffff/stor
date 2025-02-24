@@ -4,6 +4,8 @@ import { FaCircleInfo, FaCircleMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import state from "../../stor/stor";
+import analytics from "../../firebase";
+import { logEvent } from "firebase/analytics";
 
 const ItemCard = ({ item }) => {
   const snap = useSnapshot(state);
@@ -16,17 +18,18 @@ const ItemCard = ({ item }) => {
 
   const handleAddItem = () => {
     handleAnimation();
+    logEvent(analytics, `add_item > ${item.name}`)
 
     const existingItem = snap.items.find((e) => e.name === item.name);
 
     if (existingItem) {
       // Update the quantity for an existing item
       state.items = state.items.map((e) =>
-        e.name === item.name ? {...e, q: e.q + 1 } : e
+        e.name === item.name ? { ...e, q: e.q + 1 } : e
       );
     } else {
       // Add the new item with quantity 1
-      let n = {...item, q: 1}
+      let n = { ...item, q: 1 }
       state.items = [...state.items, n];
     }
   };
@@ -83,9 +86,8 @@ const ItemCard = ({ item }) => {
       <div className="flex mt-auto flex-col">
         <div className="flex items-center px-3">
           <span
-            className={`ml-auto font-normal ${
-              item.offer ? "line-through text-sm text-gray-600 font-medium" : ""
-            }`}
+            className={`ml-auto font-normal ${item.offer ? "line-through text-sm text-gray-600 font-medium" : ""
+              }`}
           >
             {item.price} DA
           </span>

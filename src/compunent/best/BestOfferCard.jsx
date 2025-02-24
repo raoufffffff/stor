@@ -4,6 +4,8 @@ import { FaCircleInfo, FaCircleMinus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import state from "../../stor/stor";
+import analytics from '../../firebase';
+import { logEvent } from 'firebase/analytics';
 
 const BestOfferCard = ({ item }) => {
   const snap = useSnapshot(state);
@@ -33,6 +35,7 @@ const BestOfferCard = ({ item }) => {
 
   const handleRemoveItem = (event) => {
     event.stopPropagation();
+    logEvent(analytics, `add_item > ${item.name}`)
 
     const existingItem = state.items.find((e) => e.name === item.name);
 

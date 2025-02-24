@@ -1,10 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
 import { IoMdClose } from "react-icons/io"
 import { Link } from "react-router-dom"
 
 const Search = ({ hide, searchSubmit, searchresult }) => {
     const [item, setItem] = useState([])
+    const { t } = useTranslation(); // Get the translation function
 
     const popularSearches = ["SIM", "GARRIDO", "ACTIVIA", "BINGO", "JAVEL", "COCA", "ROUIBA", "MILKA"].map(e => (
         <span
@@ -45,7 +47,7 @@ const Search = ({ hide, searchSubmit, searchresult }) => {
                         className="mb-3 cursor-pointer"
                         onClick={hide}
                     />
-                    <p className="font-bold">Recherches populaires</p>
+                    <p className="font-bold">{t("Recherchespopulaires")}</p>
                     <div className="w-full flex md:flex-wrap mt-3 overflow-x-auto pb-2 a">
                         {popularSearches}
                     </div>

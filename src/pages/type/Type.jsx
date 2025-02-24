@@ -8,6 +8,7 @@ import { AnimatePresence } from 'motion/react'
 import VieCard from '../../compunent/Add/VieCard'
 import Categories from '../../compunent/Categories/Categories'
 
+
 const Type = () => {
   const snap = useSnapshot(state)
   const { id } = useParams()

@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import { IoLanguage } from "react-icons/io5";
 import Lang from "../lan/Lang";
 import Search from "./Search/Search";
+import analytics from "../../firebase";
+import { logEvent } from "firebase/analytics";
 
 const Header = () => {
   const location = useLocation();
@@ -60,7 +62,10 @@ const Header = () => {
       >
 
         <label
-          onClick={() => setshowsearch(true)}
+          onClick={() => {
+            setshowsearch(true)
+            logEvent(analytics, `click on search`)
+          }}
           htmlFor="shearch"
           className="rounded-xl shadow-xl bg-white h-10 w-full mt-1.5 mx-auto flex items-center px-2"
         >

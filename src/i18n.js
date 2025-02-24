@@ -120,7 +120,14 @@ const resources = {
       Boulangerie: "مخبوزات",
       SelectPosition: "حدد البلدية",
       frais: "تكاليف التوصيل",
-      fproduits: "المشتريات"
+      fproduits: "المشتريات",
+      appliqué: "لقد تم تطبيق الرمز الترويجي الخاص بك",
+      expiré: "الرمز الترويجي غير موجود أو انتهت صلاحيته.",
+      codepromo: "تطبيق رمز ترويجي",
+      Fermer: "اغلاق",
+      Appliquer: "تطبيق",
+      searchfor: "نتائج البحث عن",
+      Recherchespopulaires: "عمليات البحث الشائعة"
     },
   },
   fr: {
@@ -238,8 +245,14 @@ const resources = {
       Boulangerie: "Boulangerie",
       SelectPosition: "Sélectionnez la municipalité",
       frais: "frais de livraison",
-      fproduits: "المشتريات"
-
+      fproduits: "المشتريات",
+      appliqué: "Votre code promo a été appliqué !",
+      expiré: "Le code promo n'existe pas ou a expiré.",
+      codepromo: "Appliquer un code promo",
+      Fermer: "Fermer",
+      Appliquer: "Appliquer",
+      searchfor: "Résultats de la recherche pour",
+      Recherchespopulaires: "Recherches populaires"
     }
 
   },

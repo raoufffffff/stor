@@ -1,14 +1,24 @@
 import axios from "axios";
+import { logEvent } from "firebase/analytics";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { IoCloseSharp } from "react-icons/io5";
+import analytics from "../../firebase";
 
 const Promo = ({ hide, changecoodes }) => {
+    const { t } = useTranslation(); // Get the translation function
+
     const [cood, setCood] = useState("");
     const [err, setErr] = useState(false);
     const [good, setGood] = useState(false);
+    useEffect(() => {
+        logEvent(analytics, `visit promo`)
 
+    }, [])
     const getPromo = async () => {
+        logEvent(analytics, `try to get promo`)
+
         try {
             await axios
                 .put(`https://daily-api-tan.vercel.app/code/${cood}`)
@@ -41,11 +51,7 @@ const Promo = ({ hide, changecoodes }) => {
                 className="bg-white relative flex flex-col w-10/12 md:w-6/12 overflow-y-auto rounded-xl shadow-lg py-3 px-5"
             >
                 {/* Bouton de fermeture */}
-                <IoCloseSharp
-                    onClick={hide}
-                    size={30}
-                    className="absolute top-1 right-4 text-gray-600 cursor-pointer hover:text-purple-600 transition-colors"
-                />
+
 
                 {good ? (
                     <motion.div
@@ -54,9 +60,14 @@ const Promo = ({ hide, changecoodes }) => {
                         transition={{ duration: 0.5 }}
                         className="flex flex-col items-center justify-center p-4"
                     >
+                        <IoCloseSharp
+                            onClick={hide}
+                            size={30}
+                            className="absolute top-0 right-2 text-gray-600 cursor-pointer hover:text-purple-600 transition-colors"
+                        />
                         <p className="text-green-600 text-4xl">✅</p>
                         <h1 className="text-green-600 text-xl font-bold mt-2 text-center">
-                            Votre code promo a été appliqué !
+                            {t("appliqué")}
                         </h1>
                     </motion.div>
                 ) : err ? (
@@ -66,14 +77,28 @@ const Promo = ({ hide, changecoodes }) => {
                         transition={{ duration: 0.5 }}
                         className="flex flex-col items-center justify-center p-4"
                     >
-                        <p className="text-red-600 text-4xl">❌</p>
+                        <IoCloseSharp
+                            onClick={hide}
+                            size={30}
+                            className="absolute top-5 right-5 text-gray-600 cursor-pointer hover:text-purple-600 transition-colors"
+                        />
                         <h1 className="text-red-600 text-xl text-center font-bold mt-2">
-                            Le code promo n'existe pas ou a expiré.
+                            {t("expiré")}
                         </h1>
                     </motion.div>
                 ) : (
                     <>
-                        <p className="mb-3">Appliquer un code promo</p>
+                        <div
+                            className="mb-3 flex justify-between items-center"
+                        >
+
+                            <p >{t("codepromo")}</p>
+                            <IoCloseSharp
+                                onClick={hide}
+                                size={30}
+                                className=" text-gray-600 cursor-pointer hover:text-purple-600 transition-colors"
+                            />
+                        </div>
                         <input
                             value={cood}
                             onChange={(e) => {
@@ -88,13 +113,13 @@ const Promo = ({ hide, changecoodes }) => {
                                 onClick={hide}
                                 className="mx-1 bg-[#3338] text-white uppercase text-xs p-2 rounded-xl"
                             >
-                                Fermer
+                                {t("Fermer")}
                             </button>
                             <button
                                 onClick={getPromo}
                                 className="mx-1 bg-[#dd2a5b] text-white uppercase text-xs p-2 rounded-xl"
                             >
-                                Appliquer
+                                {t("Appliquer")}
                             </button>
                         </div>
                     </>

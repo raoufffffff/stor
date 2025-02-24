@@ -19,7 +19,6 @@ const Items = ({ id }) => {
           }
         )
           .then(res => {
-            console.log(res.data, id);
 
             setBestOffer(res.data.result)
             setLoading(false)
