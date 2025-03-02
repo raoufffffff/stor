@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 import analytics from '../../firebase';
 import { logEvent } from 'firebase/analytics';
+
+
+
 const Categories = ({ id }) => {
   const { t } = useTranslation(); // Get the translation function
 
