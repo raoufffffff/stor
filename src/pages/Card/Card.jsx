@@ -91,19 +91,13 @@ const Card = () => {
       transition={{ duration: 0.5, type: 'spring' }}
       className=''
     >
-      <h1 className='text-center md:text-start px-5 font-bold text-2xl my-2'>
-        {t('text')}
-      </h1>
+      
       <div className='flex pt-5 min-h-[45vh] max-h-[45vh] overflow-y-auto flex-col mt-4 px-3 md:flex-row md:flex-wrap md:justify-center'>
         {snap.items.length > 0 ? ourCardItems : <EmptyItems />}
       </div>
       <div className={`w-full border-t mt-10 border-t-gray-500 relative`}>
 
-        <div className='px-4 w-fit absolute -top-[15%] md:-top-[10%] z-40 rounded-lg bg-[#dd2a5b] text-white text-center left-[50%] translate-x-[-50%] border border-gray-500'>
-          {t('deliveryTime', {
-            time: time > 17 ? t('tomorrowEvening') : t('todayEvening'),
-          })}
-        </div>
+        
         <div className='text-xl md:text-3xl flex items-center justify-between md:text-center font-[600] px-5 mt-10'>
           {t('total')}: <span className='font-bold'>{price()} DA</span>
         </div>
