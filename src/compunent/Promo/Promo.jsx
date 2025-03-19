@@ -18,11 +18,6 @@ const Promo = ({ hide, changecoodes }) => {
     }, [])
     const getPromo = async () => {
         logEvent(analytics, `try to get promo`)
-        if (cood.toUpperCase() == "RAMADAN") {
-            setGood(true);
-            changecoodes({ type: "free delevery" });
-            return
-        }
         try {
             await axios
                 .put(`https://daily-api-tan.vercel.app/code/${cood.toUpperCase()}`)
